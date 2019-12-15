@@ -1,0 +1,23 @@
+div(class='mall')
+  h1 햄스터
+  table(style='width: 100%')
+    thead
+      tr
+        th 번호
+        th 사진
+        th 햄스터명
+        th 분양가
+        th 설명
+        th 
+    tbody
+      each product in products
+        if product.category == 'hamster'
+          tr
+            td= product.id
+            td
+            img(src= product.image, style='width: 100px; height: 100px')
+            td= product.name
+            td= product.price
+            td= product.description
+            td
+              input(type='button', id='order', value='주문')

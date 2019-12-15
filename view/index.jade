@@ -1,0 +1,31 @@
+doctypehtml
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title 햄스터
+    // CSS
+    link(rel='stylesheet', type='text/css', href='/css/main.css')
+    // jQuery
+    script(src='/js/jquery-3.4.1.js')
+    // 스타일 지정 JS
+    script(src='/js/mainfunc.js')
+    
+  body
+    // 머릿글
+    header
+      a(href='/')
+        h1 햄스터
+
+    // 네비게이터
+    nav
+      h3 메뉴
+      include nav.jade
+
+    // 본문
+    article
+      include article.jade
+
+    // 아랫글
+    footer
+      h5 조무현

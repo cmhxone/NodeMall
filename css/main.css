@@ -1,0 +1,69 @@
+* {
+}
+
+body {
+  width: 1024px;
+  margin: auto;
+}
+
+header {
+  float: left;
+  clear: both;
+  text-align: center;
+  width: 100%;
+  margin: 2em auto;
+}
+
+nav {
+  float: left;
+  clear: left;
+  text-align: center;
+  width: 20%;
+  min-height: 640px;
+  margin: 2em auto;
+}
+
+article {
+  float: right;
+  clear: right;
+  text-align: center;
+  width: 80%;
+  min-height: 640px;
+  margin: 2em auto;
+}
+
+footer {
+  float: left;
+  clear: both;
+  text-align: center;
+  width: 100%;
+  margin: 2em auto;
+}
+
+/* 네비게이션 메뉴 스타일 */
+span.navmenu {
+
+}
+
+/* 레이블 스타일 */
+label {
+  margin-right: 1em;
+}
+
+/* 앵커 스타일 지정 */
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: gray;
+  text-decoration: none;
+}
+a:active {
+  color: red;
+  text-decoration: none;
+}

@@ -1,0 +1,20 @@
+//- 네비게이션 메뉴입니다
+span(class='navmenu', id='menu_food')
+  p 먹이
+span(class='navmenu', id='menu_beding')
+  p 베딩
+span(class='navmenu', id='menu_toy')
+  p 기타 용품
+span(class='navmenu', id='menu_hamster')
+  p 햄스터 분양
+
+//- 로그인 값에 따라 동적으로 뿌려주자
+if login
+  span(class='navmenu', id='menu_logout')
+    p 로그아웃
+else
+  span(class='navmenu', id='menu_login')
+    p 로그인
+      
+  span(class='navmenu', id='menu_register')
+    p 회원가입

@@ -1,0 +1,18 @@
+//- 본문에 출력 될 내용입니다
+div(id='div_main', class='article')
+  p 메뉴에서 카테고리를 선택해주세요!
+div(id='div_food', class='article')
+  include food.jade
+div(id='div_beding', class='article')
+  include beding.jade
+div(id='div_toy', class='article')
+  include toy.jade
+div(id='div_hamster', class='article')
+  include hamster.jade
+div(id='div_login', class='article')
+  include login.jade
+div(id='div_register', class='article')
+  include register.jade
+div(id='div_logout', class='article')
+  form(id='form_logout', method='post', action='/logout')
+    input(type='hidden', name='logout', value='true')

@@ -1,0 +1,21 @@
+form(method='post', action='/register')
+  p
+    label(for='regID') 아이디
+    input(type='text', id='regID', name='regID', placeholder='아이디')
+  p
+    label(for='regPW') 비밀번호
+    input(type='password', id='regPW', name='regPW', placeholder='비밀번호')
+  p
+    label(for='regPWCheck') 비밀번호 확인
+    input(type='password', id='regPWCheck', name='regPWCheck', placeholder='비밀번호 확인')
+  p
+    label(for='regName') 이름
+    input(type='text', id='regName', name='regName', placeholder='이름')
+  p
+    label(for='regPhone') 전화번호
+    input(type='text', id='regPhone', name='regPhone', placeholder='전화번호')
+  p
+    label(for='regAddress') 주소
+    input(type='text', id='regAddress', name='regAddress', placeholder='주소')
+  p
+    input(type='submit', value='회원가입')

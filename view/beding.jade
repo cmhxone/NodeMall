@@ -1,0 +1,23 @@
+div(class='mall')
+  h1 베딩
+  table(style='width: 100%')
+    thead
+      tr
+        th 품번
+        th 사진
+        th 품명
+        th 가격
+        th 제품설명
+        th   
+    tbody
+      each product in products
+        if product.category == 'beding'
+          tr
+            td= product.id
+            td
+              img(src= product.image, style='width: 100px; height: 100px')
+            td= product.name
+            td= product.price
+            td= product.description
+            td
+              input(type='button', id='order', value='주문')
