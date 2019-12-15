@@ -1,0 +1,10 @@
+head
+  title 관리자임돠~
+script(src='/socket.io/socket.io.js')
+//- TODO 품목 전달 받을때, 주문자 아이디값도 같이 받아온뒤, 처리해주자
+script.
+  var socket = io();
+  socket.emit('manager');
+  socket.on('order', function(data) {
+    document.write('<h3>' + data + '번 품목 주문 됨</h3>');
+  })

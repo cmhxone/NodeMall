@@ -20,4 +20,6 @@ div(class='mall')
             td= product.price
             td= product.description
             td
-              input(type='button', id='order', value='주문')
+              form(method='post', action='/order')
+                input(type='hidden', name='product_id', value= product.id)
+                input(type='submit', id='order', value='주문')

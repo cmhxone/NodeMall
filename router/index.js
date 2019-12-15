@@ -116,4 +116,18 @@ router.post('/logout', function(req, res, next) {
   res.redirect('/')
 })
 
+// 주문 기능
+router.post('/order', function(req, res, next) {
+  if (req.session.sessID == null || req.session.sessID == '') {
+    res.send('<script>alert("로그인 후 사용가능합니다!");history.back();</script>')
+  } else {
+    res.render('order', {product_id: req.body.product_id})
+  }
+})
+
+// 관리자 페이지
+router.get('/manager', function(req, res, next) {
+  res.render('manager')
+})
+
 module.exports = router

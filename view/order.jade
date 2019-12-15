@@ -1,0 +1,9 @@
+script(src='/socket.io/socket.io.js')
+//- TODO 주문 시도 시, 세션값을 이용해 ID도 같이 전달해주자
+script.
+  var socket = io();
+  socket.emit('order', #{product_id});
+  alert('주문완료!');
+  setTimeout(function() {
+    window.location.href='/';
+  }, 1000)

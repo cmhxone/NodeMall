@@ -9,6 +9,10 @@ var app = express()
 // 각 페이지 라우터
 var indexRouter = require('./router/index')
 
+var server = require('http').createServer(app);
+// http server를 socket.io server로 upgrade한다
+var io = require('socket.io')(server);
+
 // jade엔진을 사용, view 폴더 설정
 app.set('view engine', 'jade')
 app.set('views', 'view')
@@ -35,7 +39,27 @@ app.use('/img', express.static('./img'))
 // 루트 페이지
 app.use('/', indexRouter)
 
+// 매니저의 소켓 아이디
+var id = 0
+
+// 소켓 접속을 처리해주자
+io.on('connection', function(socket) {
+
+  // 누군가 매니저 페이지로 접속 시, 매니저 아이디를 지정해준다
+  socket.on('manager', function(data) {
+    console.log('Manager Connected!')
+    id = socket.id
+  })
+
+  // 주문이 들어오는 경우
+  socket.on('order', function(data) {
+    console.log('Order Requested!')
+    // TODO 주문 발생 시, DB에 주문정보를 저장가능하게 만들어주자
+    io.sockets.to(id).emit('order', data)
+  })
+})
+
 // 서버를 오픈
-app.listen(80, function(req, res) {
+server.listen(80, function(req, res) {
   console.log('웹 서버를 실행합니다')
 })
