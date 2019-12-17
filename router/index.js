@@ -12,24 +12,25 @@ var dbconfig = {
 
 // 루트 라우터
 router.get('/', function(req, res, next) {
+  if (req.session.sessID == null) {
+    req.session.sessID = ''
+    req.session.sessPW = ''
+  }
+
   // 세션이 존재하는 경우 질의문을 한번 더 보내 로그인 정보가 맞는지 확인한다
   var conn = mariadb.createConnection(dbconfig)
   conn.connect()
-  conn.query('SELECT * FROM accounts WHERE userID = ? AND userPW = ?', [req.session.sessID, req.session.sessPW], function(err, results) {
+  conn.query('SELECT (SELECT name FROM accounts WHERE userID = ? AND userPW = ?) AS user, products.* FROM products', [req.session.sessID, req.session.sessPW], function(err, results) {
     // 세션값이 DB와 일치하지 않을경우
-    if (results.length != 1) {
+    if (results[0]['user'] == null) {
       req.session.sessID = ''
       req.session.sessPW = ''
       req.session.logged = false
     } else {
       req.session.logged = true
     }
-    // 제품들을 입력하자
-    var conn2 = mariadb.createConnection(dbconfig)
-    conn2.query('SELECT * FROM products', function(err2, results2) {
-      res.render('index', {login: req.session.logged, products: results2})
-    })
-    conn2.end()
+
+    res.render('index', {login: req.session.logged, products:results})
   })
   conn.end()
 })
